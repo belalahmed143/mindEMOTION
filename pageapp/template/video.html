@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+
+{% block navbar %}
+<div class="ml-auto">
+    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="GET" value="{{ request.GET.get.q }}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.GET.get.q }}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="Search">Search</button>
+      </form>
+</div>
+{% endblock navbar %}
+
+{% block content %}
+
+<div class="container" style="margin-top: 8%;">
+    <h4 class="h1-responsive font-weight-bold text-center py-3">VIDEO</h4> <hr class="shadow">
+    <div class="row">
+      {% for post in videoss %}
+      <div class="col-12 col-md-4">
+        <div class="card shadow">
+          <video controls>
+            <source src="{{post.video.url}}" type="video/mp4">
+          </video>
+          <div class="card-body">
+            <h5>{{post.name}}</h5>
+            <p>{{post.date}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="my-5 text-right">
+    <a class="btn btn-dark " href="">ALL VIDEO</a>
+    </div>
+  </div>
+
+
+
+
+<!-- footer start -->
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+
+  <!-- Footer Links -->
+  <div class="container">
+    <div class="container-fluid text-center text-md-left shadow py-4">
+
+      <!-- Grid row -->
+      <div class="row text-center">
+
+
+        <div class="col-md-3 mt-md-0 mt-3">
+  
+          <a href="">about</a>
+      </div>
+        <!-- Grid column -->
+        <div class="col-md-3 mt-md-0 mt-3">
+  
+            <a href="">terms of use</a>
+        </div>
+        <!-- Grid column -->
+  
+        <hr class="clearfix w-100 d-md-none pb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+          <a href="">cookie </a>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+          <a href=""> privacy policy</a>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row -->
+  
+    </div>
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href=""> mind-EMOTION</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+
+{% endblock %}

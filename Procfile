@@ -1,0 +1,1 @@
+web: gunicorn mindEMOTION.wsgi --log-file -

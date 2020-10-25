@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+<div class="ml-auto">
+    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="GET" value="{{ request.GET.get.q }}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.GET.get.q }}">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="Search">Search</button>
+      </form>
+</div>
+{% endblock navbar %}
+
+{% block content %}
+
+{% if submitbutton == 'Search' and request.GET.q != '' %}
+{% if post %}
+<div class="container mt-5 py-5">
+    <div class="row">
+        {% for p in post %}
+      <div class="col-12 col-md-4">
+        <div class="card shadow">
+          <video controls>
+            <source src="{{p.video.url}}" type="video/mp4">
+          </video>
+          <div class="card-body">
+            <h5>{{p.name}}</h5>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div> 
+  {% else %}
+  <div class="py-5" style="text-align: center; color: red; margin-top: 15%;">
+      <h3 class="py-5">No Serach Result </h3>
+  </div>
+  {% endif %}
+  {% endif %}
+
+{% endblock %}
