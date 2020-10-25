@@ -25,7 +25,7 @@ SECRET_KEY = '(r84bv_07y9-pz)s7l^b04=w8f^mg7%gk^jb72)pm7zaqkkg*q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1' , 'mind-emition.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','mind-emotion.herokuapp.com']
 
 
 # Application definition
